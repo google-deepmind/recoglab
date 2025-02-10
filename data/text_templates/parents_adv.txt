@@ -1,0 +1,61 @@
+[Person1] teaches [person2] how to ride a bike without training wheels.
+[Person2] asks [person1] to help them practice for a school play.
+[Person2] excitedly shares their dreams and aspirations with [person1].
+[Person1] is making a grocery list and asking [person2] what snacks they want for the week.
+[Person1] teaches [person2] how to ride a bike.
+[Person2] helps [person1] set the table for dinner.
+[Person2] feels safe and loved in [person1]'s presence.
+[Person1] tucks [person2] into bed and reads them a bedtime story.
+[Person2] is telling [person1] about their day at school.
+[Person1] attends all of [person2]'s school events and performances.
+[Person2] is asking [person1] to help them reach a book on a high shelf.
+[Person2] is asking [person1] if they can go to a friend's house.
+[Person2] excitedly shows [person1] their latest artwork.
+[Person1] disciplines [person2] when they break a rule, but always explains why.
+[Person1] takes [person2] to the park to play on the swings.
+[Person1] is helping [person2] tie their shoes before heading out the door.
+[Person2] beams with pride when [person1] praises their accomplishments.
+[Person1] is making [person2]'s favorite breakfast on a Saturday morning.
+[Person1] is explaining to [person2] the importance of being honest and responsible.
+[Person2] inherited [person1]'s curly hair and bright smile.
+[Person1] cheers loudly for [person2] at their soccer game.
+[Person1] is giving [person2] a pep talk before their big game.
+[Person1] patiently teaches [person2] how to tie their shoes.
+[Person2] eagerly helps [person1] with chores around the house.
+[Person1] listens patiently to [person2]'s stories about their day at school.
+[Person2] runs to [person1] for comfort after a scraped knee.
+[Person2] proudly shows [person1] their good grades on a test.
+[Person1] helps [person2] with their homework after school.
+[Person2] is asking [person1] for help with their homework.
+[Person2] asks [person1] for help reaching a toy on a high shelf.
+[Person1] is tucking [person2] into bed and reading them a story.
+[Person2] proudly tells their friends about [person1]'s accomplishments.
+[Person2] is showing [person1] a drawing they made in art class.
+[Person1] always knows how to make [person2] laugh when they're feeling down.
+[Person1] is saving money for [person2]'s college education.
+[Person2] is running to the door to greet [person1] when they come home from work.
+[Person2] is asking [person1] to play a game of catch in the backyard.
+[Person1] proudly displays [person2]'s artwork on the refrigerator.
+[Person1] gives [person2] a curfew and reminds them to be home on time.
+[Person2] excitedly tells [person1] about their first crush.
+[Person2] looks to [person1] for guidance and support in making decisions.
+[Person1] picks [person2] up from school and asks about their day.
+[Person1] offers [person2] advice on how to handle a disagreement with a friend.
+[Person1] is packing [person2]'s lunch for school.
+[Person1] is bandaging up a scraped knee that [person2] got while playing outside.
+[Person1] teaches [person2] how to cook their favorite family recipe.
+[Person1] gently reminds [person2] to brush their teeth before bed.
+[Person1] packs [person2]'s lunch for school with a loving note.
+[Person2] looks up to [person1] as their role model.
+[Person1] worries about [person2]'s safety when they're out with friends.
+[Person2] gives [person1] a handmade card for their birthday.
+[Person2] inherits [person1]'s quirky sense of humor and love of puns.
+[Person2] asks [person1] for permission to have a sleepover with a friend.
+[Person2] confides in [person1] about their worries and fears.
+[Person2] snuggles up to [person1] on the couch while watching a movie.
+[Person1] gives [person2] a warm hug before they leave for school.
+[Person1] is driving [person2] to soccer practice.
+[Person2] asks [person1]'s opinion on what to wear to a school dance.
+[Person1] is reminding [person2] to brush their teeth before bed.
+[Person1] beams with pride as [person2] takes their first steps.
+[Person2] is excitedly showing [person1] the new toy they got from a friend.

@@ -1,0 +1,1 @@
+[person1] is the parent of [person2]

@@ -1,0 +1,1 @@
+[person1] is friends with [person2]
