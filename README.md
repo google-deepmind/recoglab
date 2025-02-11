@@ -8,7 +8,7 @@ This codebase accompanies the paper
 
 **ReCogLab: A Framework
 Testing Relational Reasoning & Cognitive Hypotheses on LLM** \
-Andrew Liu, Others, Kenneth Marino
+Andrew Liu, Henry Prior, Gargi Balasubramaniam, Rivka Moroshko, Amir Zait, Ilia Labzovsky, Danny Karmon, Ishita Dasgupta, Kim Stachenfeld, Kenneth Marino
 
 *Note that this is not an officially supported Google product.*
 

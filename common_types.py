@@ -288,9 +288,9 @@ class EntityMode(enum.StrEnum):
 
 # Comparison relation types and congruency modes.
 class RelationType(enum.StrEnum):
-  SIZE_NATURALTEXT = "size_naturaltext"
-  WEIGHT_NATURALTEXT = "weight_naturaltext"
-  AGE_NATURALTEXT = "age_naturaltext"
+  SIZE_NATURALTEXT = "size"
+  WEIGHT_NATURALTEXT = "weight"
+  AGE_NATURALTEXT = "age"
 
 
 class CongruencyMode(enum.StrEnum):

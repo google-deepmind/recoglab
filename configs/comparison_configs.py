@@ -55,7 +55,7 @@ def get_default_comparison_module_config() -> ml_collections.ConfigDict:
   comparison_module_config.num_entities_gen = 20
   comparison_module_config.ordering = common_types.Ordering.RANDOM.value
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
-  comparison_module_config.entity_type = 'people'
+  comparison_module_config.entity_type = 'baby-names'
   comparison_module_config.relation_type = (
       common_types.RelationType.AGE_NATURALTEXT.value
   )
@@ -121,7 +121,7 @@ def congruent_age_symbolic() -> ml_collections.ConfigDict:
   comparison_module_config.num_entities_gen = 20
   comparison_module_config.ordering = 'random'
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
-  comparison_module_config.entity_type = 'people'
+  comparison_module_config.entity_type = 'baby-names'
   comparison_module_config.relation_type = (
       common_types.RelationType.AGE_NATURALTEXT
   )
@@ -144,7 +144,7 @@ def get_comparison_people_tree() -> ml_collections.ConfigDict:
   comparison_module_config.num_entities_gen = 8
   comparison_module_config.ordering = 'random'
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
-  comparison_module_config.entity_type = 'people'
+  comparison_module_config.entity_type = 'baby-names'
   comparison_module_config.relation_type = (
       common_types.RelationType.AGE_NATURALTEXT
   )

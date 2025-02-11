@@ -117,10 +117,10 @@ class GenerateCongruentEntities:
         )
         for i, ss, sw in zip(selected_indices, sampled_size, sampled_weight)
     ]
-
-    sampled_obj.sort(
-        key=functools.partial(attribute_sort_key, attribute=attribute)
-    )
+    if attribute != RelationType.AGE_NATURALTEXT:
+      sampled_obj.sort(
+          key=functools.partial(attribute_sort_key, attribute=attribute)
+      )
     # sampled_obj this will be ascending.
     match self._congruency_mode:
       case CongruencyMode.ALL_CONGRUENT:
@@ -368,11 +368,15 @@ class ComparisonModuleGenerator:
         self.all_entities = [
             common_types.Entity(entity, None) for entity in self.all_entities
         ]
-      elif self.cfg.entity_type == 'people':
+      elif self.cfg.entity_type == 'baby-names':
         self.all_entities = utils.get_unique_names(split)
         self.all_entities = [
             common_types.Entity(entity, None) for entity in self.all_entities
         ]
+      elif self.cfg.entity_type == 'random_name':
+        self.congruency_generator = GenerateCongruentEntities(
+            common_types.CongruencyMode.RANDOM_NAME, self.split
+        )
     else:
       self.all_entities = self.cfg.entities_input
     self.true_ordering = copy.copy(self.all_entities)
@@ -401,7 +405,7 @@ class ComparisonModuleGenerator:
         )
       prng_key, subkey = jax.random.split(prng_key)
       gen_entities_sorted = self.congruency_generator.generate_set_of_entities(
-          subkey, self.cfg.num_entities_gen, self.cfg.relation_type
+          subkey, self.cfg.num_entities_max, self.cfg.relation_type
       )
     else:
       # Determine the ordering
@@ -417,11 +421,11 @@ class ComparisonModuleGenerator:
         )
       else:
         entities_to_choose = self.all_entities
-      assert self.cfg.num_entities_gen <= len(entities_to_choose)
+      assert self.cfg.num_entities_max <= len(entities_to_choose)
 
       prng_key, subkey = jax.random.split(prng_key)
       gen_entities_unsorted = utils.jax_sample(
-          subkey, entities_to_choose, self.cfg.num_entities_gen, replace=False
+          subkey, entities_to_choose, self.cfg.num_entities_max, replace=False
       )
 
       # Sort them by the ordering
@@ -448,7 +452,7 @@ class ComparisonModuleGenerator:
         )
         module.answer_block = query_block
     elif self.cfg.network_type == 'random_tree':
-      n = self.cfg.num_entities_gen
+      n = self.cfg.num_entities_max
       # Sample a random number from jax and use it to seed the random tree.
       prng_key, subkey = jax.random.split(prng_key)
       nx_seed = jax.random.randint(subkey, (), 0, 10000000)
@@ -512,11 +516,11 @@ class ComparisonModuleGenerator:
       )
     else:
       entities_to_choose = self.all_entities
-    assert self.cfg.num_entities_gen <= len(entities_to_choose)
+    assert self.cfg.num_entities_max <= len(entities_to_choose)
 
     prng_key, subkey = jax.random.split(prng_key)
     gen_entities_unsorted = utils.jax_sample(
-        subkey, entities_to_choose, self.cfg.num_entities_gen, replace=False
+        subkey, entities_to_choose, self.cfg.num_entities_max, replace=False
     )
 
     # Sort them by the ordering
@@ -527,7 +531,7 @@ class ComparisonModuleGenerator:
 
     module.entities = gen_entities_sorted
 
-    n = self.cfg.num_entities_gen
+    n = self.cfg.num_entities_max
     # Sample a random number from jax and use it to seed the random tree.
     prng_key, subkey = jax.random.split(prng_key)
     nx_seed = jax.random.randint(subkey, (), 0, 10000000)
