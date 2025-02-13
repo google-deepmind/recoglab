@@ -16,8 +16,7 @@
 
 base_path='/tmp/recoglab_dataset'
 
-
-
+# Reseeded experiments. Commented out as it's expensive and slow to run.
 # num_examples=50
 # # For seeded experiments:
 # for seed in 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75; do
@@ -82,12 +81,87 @@ for task in social_network_FastestMessage_ExactPath social_network_FastestMessag
     for i in 50 60 70; do
       config_str="${task}_${difficulty}${i}"
       python -m recoglab.generate_static_dataset \
-        --eeaao_configuration_str="$config_str" \
+        --recoglab_configuration_str="$config_str" \
         --split="$split" \
         --output_path="${base_path}/${experiment_name}/${split}" \
         --num_examples="$num_examples" \
         --seed="$PROD_SEED"
     done
+  done
+done
+
+# Consistency detection
+expermient_name="consistency_detection"
+PROD_SEED=42
+
+split='test'
+num_examples=1000
+python -m recoglab.generate_static_dataset \
+  --recoglab_configuration_str="consistent_inconsistent_tree" \
+  --split="$split" \
+  --output_path="${base_path}/${experiment_name}/${split}" \
+  --num_examples="${num_examples}" \
+  --seed="$PROD_SEED"
+
+split='val'
+num_examples=50
+python -m recoglab.generate_static_dataset \
+  --recoglab_configuration_str="consistent_inconsistent_tree" \
+  --split="$split" \
+  --output_path="${base_path}/${experiment_name}/${split}" \
+  --num_examples="${num_examples}" \
+  --seed="$PROD_SEED"
+
+
+# Feasible infeasible detection
+experiment_name="feasible_infeasible"
+PROD_SEED=42
+
+split='test'
+num_examples=1000
+python -m recoglab.generate_static_dataset \
+  --recoglab_configuration_str="feasible_infeasible_tree" \
+  --split="$split" \
+  --output_path="${base_path}/${experiment_name}/${split}" \
+  --num_examples="${num_examples}" \
+  --seed="$PROD_SEED"
+
+split='val'
+num_examples=50
+python -m recoglab.generate_static_dataset \
+  --recoglab_configuration_str="feasible_infeasible_tree" \
+  --split="$split" \
+  --output_path="${base_path}/${experiment_name}/${split}" \
+  --num_examples="${num_examples}" \
+  --seed="$PROD_SEED"
+
+# Congruent incongruent experiments.
+experiment_name="congruent_incongruent"
+num_examples=50
+split=val
+for comparator in size weight; do
+  for relationship in congruent incongruent random_string; do
+    config_str="comparison_${relationship}_${comparator}"
+    python -m recoglab.generate_static_dataset \
+      --recoglab_configuration_str="$config_str" \
+      --split="$split" \
+      --output_path="${base_path}/${experiment_name}/${split}" \
+      --num_examples="$num_examples" \
+      --seed="$PROD_SEED"
+  done
+done
+
+num_examples=1000
+split=test
+for comparator in size weight; do
+  for relationship in congruent incongruent random_string; do
+    config_str="comparison_${relationship}_${comparator}"
+    python -m recoglab.generate_static_dataset \
+      --recoglab_configuration_str="$config_str" \
+      --split="$split" \
+      --output_path="${base_path}/${experiment_name}/${split}" \
+      --num_examples="$num_examples" \
+      --seed="$PROD_SEED"
   done
 done
 

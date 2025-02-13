@@ -122,13 +122,13 @@ def generate_comparison_iclr_configs() -> (
               common_types.RelationType.SIZE_NATURALTEXT,
           ))
       ),
-      'feasibile_infeasible_tree': (
+      'feasible_infeasible_tree': (
           comparison_configs.get_comparison_people_tree()
       ),
       'consistent_inconsistent_tree': (
           comparison_configs.get_valid_people_tree()
       ),
-      'congruent_age_symbolic': comparison_configs.congruent_age_symbolic(),
+      'symoblic_distance_age': comparison_configs.symoblic_distance_age(),
   }
   return immutabledict.immutabledict(premade_comparison_configs)
 

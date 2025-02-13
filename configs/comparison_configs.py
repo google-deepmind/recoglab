@@ -52,7 +52,7 @@ def get_default_comparison_module_config() -> ml_collections.ConfigDict:
   """Get comparison module for 10 entities."""
   comparison_module_config = ml_collections.ConfigDict()
   comparison_module_config.name = 'ComparisonModule'
-  comparison_module_config.num_entities_gen = 20
+  comparison_module_config.num_entities_max = 20
   comparison_module_config.ordering = common_types.Ordering.RANDOM.value
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
   comparison_module_config.entity_type = 'baby-names'
@@ -73,7 +73,7 @@ def get_default_object_comparison_module_config() -> ml_collections.ConfigDict:
   """Get comparison module for 10 entities."""
   comparison_module_config = ml_collections.ConfigDict()
   comparison_module_config.name = 'ComparisonModule'
-  comparison_module_config.num_entities_gen = 20
+  comparison_module_config.num_entities_max = 20
   comparison_module_config.ordering = common_types.Ordering.RANDOM.value
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
   comparison_module_config.entity_type = 'basic_objects'
@@ -97,7 +97,7 @@ def get_congruent_relation_config(enum_inputs) -> ml_collections.ConfigDict:
   cfg.all_module_names = ['comparison']
   comparison_module_config = ml_collections.ConfigDict()
   comparison_module_config.name = 'ComparisonModule'
-  comparison_module_config.num_entities_gen = 20
+  comparison_module_config.num_entities_max = 20
   comparison_module_config.ordering = 'random'
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
   comparison_module_config.entity_type = 'congruent_objects'
@@ -112,13 +112,13 @@ def get_congruent_relation_config(enum_inputs) -> ml_collections.ConfigDict:
   return cfg
 
 
-def congruent_age_symbolic() -> ml_collections.ConfigDict:
+def symoblic_distance_age() -> ml_collections.ConfigDict:
   """Returns a config for age comparisons."""
   cfg = ml_collections.ConfigDict()
   cfg.all_module_names = ['comparison']
   comparison_module_config = ml_collections.ConfigDict()
   comparison_module_config.name = 'ComparisonModule'
-  comparison_module_config.num_entities_gen = 20
+  comparison_module_config.num_entities_max = 20
   comparison_module_config.ordering = 'random'
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
   comparison_module_config.entity_type = 'baby-names'
@@ -141,7 +141,7 @@ def get_comparison_people_tree() -> ml_collections.ConfigDict:
   cfg.all_module_names = ['comparison']
   comparison_module_config = ml_collections.ConfigDict()
   comparison_module_config.name = 'ComparisonModule'
-  comparison_module_config.num_entities_gen = 8
+  comparison_module_config.num_entities_max = 8
   comparison_module_config.ordering = 'random'
   comparison_module_config.entities_mode = common_types.EntityMode.PRESET.value
   comparison_module_config.entity_type = 'baby-names'
@@ -169,7 +169,7 @@ def get_feasibility_tree() -> ml_collections.ConfigDict:
   # Feasibility starts with a tree and rebalances around the answer.
   # yes, no, or unknown.
   cfg = get_comparison_people_tree()
-  cfg.comparison.num_entities_gen = 10
+  cfg.comparison.num_entities_max = 10
   cfg.heuristic_rebalance_fieldname = 'answer'
   return cfg
 

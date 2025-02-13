@@ -1,27 +1,67 @@
 <!-- mdlint off(LINE_OVER_80) -->
 <!-- mdlint off(SNIPPET_INVALID_LANGUAGE) -->
 # ReCogLab
-[Project Page Coming Soon] |
-[Paper Coming Soon]
+[Paper Coming Soon] | [[Colab]](https://colab.sandbox.google.com/github/google-deepmind/recoglab/blob/main/colab/generate_dataset_v1.ipynb)
 
-This codebase accompanies the paper
+This codebase accompanies the paper:
 
 **ReCogLab: A Framework
 Testing Relational Reasoning & Cognitive Hypotheses on LLM** \
 Andrew Liu, Henry Prior, Gargi Balasubramaniam, Rivka Moroshko, Amir Zait, Ilia Labzovsky, Danny Karmon, Ishita Dasgupta, Kim Stachenfeld, Kenneth Marino
 
-*Note that this is not an officially supported Google product.*
-
 ## About
-This framework is designed to allow researchers in cognitive science and NLP to
+ReCogLab is a generative framework designed to allow researchers in cognitive science and NLP to
 quickly prototype language model experiments on a wide variety of relational
 reasoning. Our framework automatically generates relational reasoning word
-problems that can be used to probe for cognitive effects in Large Language
-Models (LLMs). We also use this framework to identify problem settings that
-negatively impact reasoning capabilities.
+problems that can be used to probe for cognitive effects and diagnosing reasoning capabilities in Large Language
+Models (LLMs). Our framework can generate more challenging examples along multiple
+dimensions such as the number of entities, length of the chain, use of filler
+and flavor text.
 
+Several transitive inference capabilities of tasks that we can generate configurations for include:
+
+* **Basic Transitive Inference**: Generate problems that evaluate basic transitive inference reasoning skills.
+```
+# Question
+Dog is bigger than Apple.
+Dog is smaller than Fire truck.
+Is apple smaller than Fire truck?
+# Answer
+No
+```
+* **Graph Traversal**: Generate problems that evaluate multi-hop reasoning skills.
+```
+# Question
+Anna is friends with Bob.
+Bob is friends with Carl.
+Bob is friends with Dana.
+If a messsage can be exchanged between people who are friends, if Dana wants to pass a message to Anna, what's the exact path of friends that will receive the message?
+# Answer
+['Dana', 'Bob', 'Anna']
+```
+* **Consistency Detection**: Generate problems that evalute detecting locigally inconsistent statements.
+```
+# Question
+Dog is bigger than Apple.
+Dog is smaller than Fire truck.
+Fire truck is smaller than Apple.
+Are the above statements consistent or inconsistent with each other?
+# Answer
+Inconsistent
+```
+* **Determinacy / Indeterminacy / Feasibility**: Generates problems and ask whether sufficient information has been provided to answer the question.
+```
+# Question
+Dog is bigger than Apple.
+Dog is smaller than Fire truck.
+Dog is smaller than Van.
+Is Van bigger than Fire truck?
+# Answer
+Unknown
+```
 ## Colab Demo
-Coming Soon.
+We have a [Colab demo](https://colab.sandbox.google.com/github/google-deepmind/recoglab/blob/main/colab/generate_dataset_v1.ipynb) that contains configurable form to
+generate common examples with.
 
 ## Local Installation and Usage
 
@@ -54,9 +94,9 @@ python -m recoglab.generate_static_dataset \
   --config_overwrite="num_entities_gen=10"
 ```
 
-## Citing this work
+We also provide `iclr_dataset.sh` to reproduce the datasets that we generated for experimental results used in our paper.
 
-Add citation details here, usually a pastable BibTeX snippet:
+## Citing this work
 
 ```bibtex
 @inproceedings{
