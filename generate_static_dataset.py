@@ -74,6 +74,25 @@ _USE_FILLER = flags.DEFINE_bool(
     'Overwrite filler parameters with _DATASET_OVERWRITE',
 )
 
+
+_FILLER_TYPE = flags.DEFINE_string(
+    'filler_type',
+    'random_text',
+    'Type of filler to use: random_text | entity_filler'
+)
+
+_FILLER_POSITION = flags.DEFINE_string(
+    'filler_position',
+    'interspersed',
+    'Position of filler to use: before | after | interspersed'
+)
+
+_FILLER_NUM_LINES = flags.DEFINE_integer(
+    'filler_num_lines',
+    10,
+    'Number of filler lines to use'
+)
+
 # Options for Heuristic Rejection Sampling.
 _HEURISTIC_REBALANCE = flags.DEFINE_string(
     'heuristic_rebalance_fieldname',
@@ -146,17 +165,13 @@ def main(_) -> None:
 
   # Overwrite filler config values
   if _USE_FILLER.value:
-    default_filler_config = presets.default_filler_config()
     # Overwrite defaults
     for module_name in dataset_config.all_module_names:
       dataset_config[module_name].add_filler = True
-      dataset_config[module_name].num_filler_lines = (
-          default_filler_config.num_filler_lines
-      )
-      dataset_config[module_name].filler_type = (
-          default_filler_config.filler_type
-      )
-      dataset_config[module_name].filler_position = default_filler_config.value
+      dataset_config[module_name].num_filler_lines = _FILLER_NUM_LINES.value
+      dataset_config[module_name].filler_type = _FILLER_TYPE.value
+      dataset_config[module_name].filler_position = _FILLER_POSITION.value
+      # Note: these values can be overridden by the sweep
 
   if overwrite_values:
     dataset_config = overwrite_config(dataset_config, overwrite_values)
