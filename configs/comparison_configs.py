@@ -66,6 +66,7 @@ def get_default_comparison_module_config() -> ml_collections.ConfigDict:
   comparison_module_config.preamble = ''
   comparison_module_config.query_preamble = ''
   comparison_module_config.termination_type = 'None'
+  comparison_module_config.network_type = 'linear'
   return comparison_module_config
 
 
@@ -87,6 +88,7 @@ def get_default_object_comparison_module_config() -> ml_collections.ConfigDict:
   comparison_module_config.preamble = ''
   comparison_module_config.query_preamble = ''
   comparison_module_config.termination_type = 'None'
+  comparison_module_config.network_type = 'linear'
   return comparison_module_config
 
 
