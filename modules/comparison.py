@@ -305,6 +305,7 @@ def generate_comparison_query_block(
     block.answers = ['No']
   block.prompt.append(pattern % (entity1, clause, entity2))
   block.metadata['distance'] = str(distance)
+  block.metadata['entities'] = repr([e.text for e in entities])
   # To balance and slice by ansewr.
   block.metadata['answer'] = block.answers[0]
   return block
@@ -321,6 +322,7 @@ class ComparisonModule(recoglab_base.ReCogLabModule):
     if self.answer_block:
       return {
           'distance': self.answer_block.metadata['distance'],
+          'entities': self.answer_block.metadata['entities'],
           'answer': self.answer_block.answers[0],
       }
     return {}
@@ -335,7 +337,8 @@ class ComparisonCoherentEvidenceModule(recoglab_base.ReCogLabModule):
   def get_metadata(self) -> Dict[str, str]:
     """Returns the metadata for a given module."""
     if self.answer_block:
-      return {'answer': self.answer_block.answers[0]}
+      return {'answer': self.answer_block.answers[0],
+              'entities': self.answer_block.metadata['entities']}
     return {}
 
 
