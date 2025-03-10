@@ -187,7 +187,7 @@ def fastest_message_block(
 
   block.prompt.append(query)
   block.metadata.update({'symbolic_distance': str(len(shortest_paths[0]) - 1),
-                         'entities': repr(entities)})
+                         'entities': repr([e.text for e in entities])})
   return block
 
 
@@ -227,7 +227,7 @@ def fastest_message_block_num_hops(
 
   block.prompt.append(query)
   block.metadata.update({'symbolic_distance': str(len(shortest_paths[0]) - 1),
-                         'entities': repr(entities)})
+                         'entities': repr([e.text for e in entities])})
   return block
 
 
@@ -271,7 +271,7 @@ def fastest_message_block_exact_path(
 
   block.prompt.append(query)
   block.metadata.update({'symbolic_distance': str(len(shortest_paths[0]) - 1),
-                         'entities': repr(entities)})
+                         'entities': repr([e.text for e in entities])})
   return block
 
 
