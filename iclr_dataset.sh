@@ -16,6 +16,7 @@
 
 base_path='/tmp/recoglab_dataset'
 
+# ====================
 # Reseeded experiments. Commented out as it's expensive and slow to run.
 # num_examples=50
 # # For seeded experiments:
@@ -35,7 +36,7 @@ base_path='/tmp/recoglab_dataset'
 #   done
 # done
 
-
+# ====================
 # Flowery-noflowery language is flavor-text no-flavor-text from the paper.
 experiment_name="flower_noflower"
 PROD_SEED=42
@@ -90,6 +91,7 @@ for task in social_network_FastestMessage_ExactPath social_network_FastestMessag
   done
 done
 
+# ====================
 # Consistency detection
 expermient_name="consistency_detection"
 PROD_SEED=42
@@ -113,6 +115,7 @@ python -m recoglab.generate_static_dataset \
   --seed="$PROD_SEED"
 
 
+# ====================
 # Feasible infeasible detection
 experiment_name="feasible_infeasible"
 PROD_SEED=42
@@ -135,6 +138,7 @@ python -m recoglab.generate_static_dataset \
   --num_examples="${num_examples}" \
   --seed="$PROD_SEED"
 
+# ====================
 # Congruent incongruent experiments.
 experiment_name="congruent_incongruent"
 num_examples=50

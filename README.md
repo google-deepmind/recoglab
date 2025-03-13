@@ -1,7 +1,7 @@
 <!-- mdlint off(LINE_OVER_80) -->
 <!-- mdlint off(SNIPPET_INVALID_LANGUAGE) -->
 # ReCogLab
-[Paper Coming Soon] | [[Colab]](https://colab.sandbox.google.com/github/google-deepmind/recoglab/blob/main/colab/generate_dataset_v1.ipynb)
+[[Paper]](https://openreview.net/pdf?id=yORSk4Ycsa) | [[Colab]](https://colab.sandbox.google.com/github/google-deepmind/recoglab/blob/main/colab/generate_dataset_v1.ipynb)
 
 This codebase accompanies the paper:
 
@@ -9,13 +9,15 @@ This codebase accompanies the paper:
 Testing Relational Reasoning & Cognitive Hypotheses on LLM** \
 Andrew Liu, Henry Prior, Gargi Balasubramaniam, Rivka Moroshko, Amir Zait, Ilia Labzovsky, Danny Karmon, Ishita Dasgupta, Kim Stachenfeld, Kenneth Marino
 
+For correspondence about this project, please contact {ahliu,hprior,gargisb,kmarino}@google.com
+
 ## About
 ReCogLab is a generative framework designed to allow researchers in cognitive science and NLP to
 quickly prototype language model experiments on a wide variety of relational
 reasoning. Our framework automatically generates relational reasoning word
 problems that can be used to probe for cognitive effects and diagnosing reasoning capabilities in Large Language
-Models (LLMs). Our framework can generate more challenging examples along multiple
-dimensions such as the number of entities, length of the chain, use of filler
+Models (LLMs). This includes generating more challenging examples along multiple
+dimensions such as the number of entities, length of reasoning, use of filler
 and flavor text.
 
 Several transitive inference capabilities of tasks that we can generate configurations for include:
@@ -39,7 +41,7 @@ If a messsage can be exchanged between people who are friends, if Dana wants to 
 # Answer
 ['Dana', 'Bob', 'Anna']
 ```
-* **Consistency Detection**: Generate problems that evalute detecting locigally inconsistent statements.
+* **Consistency Detection**: Generate problems that evaluate detecting logically inconsistent statements.
 ```
 # Question
 Dog is bigger than Apple.
@@ -61,7 +63,11 @@ Unknown
 ```
 ## Colab Demo
 We have a [Colab demo](https://colab.sandbox.google.com/github/google-deepmind/recoglab/blob/main/colab/generate_dataset_v1.ipynb) that contains configurable form to
-generate common examples with.
+generate common examples with. For more information about how each form's field affects ReCogLab see [recoglab_options_documentation.pdf](https://github.com/google-deepmind/recoglab/blob/main/recoglab_options_documentation.pdf)
+
+## Loading ReCogLab Datasets
+ReCogLab generated datasets are encoded using [TFRecords](https://www.tensorflow.org/tutorials/load_data/tfrecord) and Python strings. This makes it straightforward to load your generated dataset without needing ReCogLab again. Please see the Colab
+demo for an example of loading a ReCogLab tfrecord.
 
 ## Local Installation and Usage
 
