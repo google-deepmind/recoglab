@@ -28,7 +28,7 @@ numpy==2.0.2
 opt_einsum==3.4.0
 optree==0.14.0
 packaging==24.2
-protobuf==5.29.3
+protobuf==5.29.5
 Pygments==2.19.1
 PyYAML==6.0.2
 regex==2024.11.6
