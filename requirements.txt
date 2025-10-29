@@ -13,7 +13,7 @@ immutabledict==4.2.1
 jax==0.4.33
 jaxlib==0.4.33
 joblib==1.4.2
-keras==3.8.0
+keras==3.12.0
 libclang==18.1.1
 Markdown==3.7
 markdown-it-py==3.0.0
