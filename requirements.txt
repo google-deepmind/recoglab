@@ -23,7 +23,7 @@ ml-dtypes==0.4.1
 ml_collections==1.0.0
 namex==0.0.8
 networkx==3.4.2
-nltk==3.9.1
+nltk==3.9.3
 numpy==2.0.2
 opt_einsum==3.4.0
 optree==0.14.0
